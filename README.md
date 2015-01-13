@@ -8,6 +8,12 @@ Based on [webapplate](http://webapplate.github.io/).
 
 current version: v2.1.0
 
+## How it looks
+
+Open http://webapplate.github.io/ghapplate to see the basic looks and feel.
+
+![Real welcome page](http://i.imgur.com/8AGwXCG.png)
+
 ## How to use ghapplate
 
 Go to https://github.com/webapplate/ghapplate, click 'fork' button to fork the template to your repository.
