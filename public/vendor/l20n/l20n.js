@@ -59,6 +59,7 @@ define('l20n/html', function(require) {
 
   var L20n = require('../l20n');
   var io = require('./platform/io');
+  L20n.shims = {};
 
   // absolute URLs start with a slash or contain a colon (for schema)
   var reAbsolute = /^\/|:/;
@@ -89,6 +90,8 @@ define('l20n/html', function(require) {
       th: [ 'abbr']
     }
   };
+
+  var templateSupported = 'content' in document.createElement('template');
 
   // Start-up logic (pre-bootstrap)
   // =========================================================================
@@ -310,16 +313,23 @@ define('l20n/html', function(require) {
       return;
     }
     if (entity.value) {
-      // if there is no HTML in the translation nor no HTML entities are used, 
-      // just replace the textContent
+      // if there is no HTML in the translation nor no HTML entities are used
+      // or if the template element is not supported and no fallback was
+      // provided, just replace the textContent
       if (entity.value.indexOf('<') === -1 &&
-          entity.value.indexOf('&') === -1) {
+          entity.value.indexOf('&') === -1 ||
+          !templateSupported && typeof L20n.shims.getTemplate !== 'function') {
         node.textContent = entity.value;
       } else {
         // otherwise, start with an inert template element and move its 
         // children into `node` but such that `node`'s own children are not 
         // replaced
-        var translation = document.createElement('template');
+        var translation = templateSupported ?
+          document.createElement('template') :
+          // If <template> is not supported, fallback to an implementation
+          // provided from outside.
+          L20n.shims.getTemplate();
+
         translation.innerHTML = entity.value;
         // overlay the node with the DocumentFragment
         overlayElement(node, translation.content);
@@ -376,7 +386,7 @@ define('l20n/html', function(require) {
       }
 
       // otherwise just take this child's textContent
-      var text = new Text(childElement.textContent);
+      var text = document.createTextNode(childElement.textContent);
       result.appendChild(text);
     }
 
@@ -735,7 +745,7 @@ define('l20n/context', function(require, exports) {
         if (src[key] === undefined) {
           // un-define (remove) the property from dst
           delete dst[key];
-        } else if (typeof src[key] !== 'object') {
+        } else if (src[key] === null || typeof src[key] !== 'object') {
           // if the source property is a primitive, just copy it overwriting 
           // whatever the destination property is
           dst[key] = src[key];
@@ -779,7 +789,10 @@ define('l20n/context', function(require, exports) {
 
     function ready(callback) {
       if (_isReady) {
-        setTimeout(callback);
+        // XXX: csp linter needs 'function' for type reference
+        setTimeout(function() {
+          callback();
+        });
       }
       addEvent('ready', callback);
     }
@@ -1155,6 +1168,9 @@ define('l20n/events', function(require, exports) {
 
   EventEmitter.prototype.removeEventListener = function ee_rm(type, listener) {
     var typeListeners = this._listeners[type];
+    if (!typeListeners) {
+      return this;
+    }
     var pos = typeListeners.indexOf(listener);
     if (pos === -1) {
       return this;

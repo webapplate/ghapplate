@@ -2,7 +2,7 @@
   "name": "l20n",
   "main": "l20n.js",
   "description": "A natural-language localization framework",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "http://l20n.org",
   "authors": [
     "Mozilla <l10n-drivers@mozilla.org>",
@@ -15,11 +15,11 @@
     "l10n",
     "l20n"
   ],
-  "_release": "1.0.1",
+  "_release": "1.0.2",
   "_resolution": {
     "type": "version",
-    "tag": "1.0.1",
-    "commit": "ade0ea499b85b330b4fd01a803b42bd8904b4b61"
+    "tag": "1.0.2",
+    "commit": "55eb2a334ee05c771c78dea8d6b510b3429818fc"
   },
   "_source": "git://github.com/l20n/builds.git",
   "_target": "^1.0.1",
