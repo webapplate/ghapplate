@@ -10,7 +10,7 @@
         "60": "style/icons/apple-touch-icon-precomposed.png",
         "128": "style/icons/icon128.png"
     },
-    "launch_path": "index.html",
+    "launch_path": "/ghapplate/public/index.html",
     "installs_allowed_from": ["*"],
     "manifest_version": 2,
     "app": {
