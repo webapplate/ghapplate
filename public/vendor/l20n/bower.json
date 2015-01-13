@@ -1,0 +1,18 @@
+{
+    "name": "l20n",
+    "main": "l20n.js",
+    "description": "A natural-language localization framework",
+    "version": "1.0.1",
+    "homepage": "http://l20n.org",
+    "authors": [
+      "Mozilla <l10n-drivers@mozilla.org>",
+      "Zbigniew Braniecki",
+      "Staś Małolepszy"
+    ],
+    "license": "Apache 2.0",
+    "keywords": [
+      "localization",
+      "l10n",
+      "l20n"
+    ]
+}
