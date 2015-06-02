@@ -20,7 +20,7 @@ Go to https://github.com/webapplate/ghapplate, click 'fork' button to fork the t
 
 ## How to create multiple forks of a GitHub repo?
 
-Check the [guide](https://adrianshort.org/create-multiple-forks-of-a-github-repo/).
+Check the [guide](https://github.com/michellebai/ghapplate).
 
 ## Features
 
