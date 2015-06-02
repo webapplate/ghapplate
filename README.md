@@ -4,7 +4,7 @@
 
 The template to instantly create and edit a new web app on your github page.
 
-Based on [webapplate](https://github.com/michellebai/ghapplate).
+Based on [webapplate](https://michelle.github.io/ghapplate).
 
 current version: v2.2.0
 
