@@ -4,7 +4,7 @@
 
 The template to instantly create and edit a new web app on your github page.
 
-Based on [webapplate](http://webapplate.github.io/).
+Based on [webapplate](https://github.com/michellebai/ghapplate).
 
 current version: v2.2.0
 
@@ -20,7 +20,7 @@ Go to https://github.com/webapplate/ghapplate, click 'fork' button to fork the t
 
 ## How to create multiple forks of a GitHub repo?
 
-Check the [guide](https://github.com/michellebai/ghapplate).
+Check the [guide](https://adrianshort.org/create-multiple-forks-of-a-github-repo/  ).
 
 ## Features
 
