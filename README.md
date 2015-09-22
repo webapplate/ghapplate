@@ -4,7 +4,7 @@
 
 The template to instantly create and edit a new web app on your github page.
 
-Based on [webapplate](http://webapplate.github.io/).
+Based on [webapplate](http://alanhc.github.io/).
 
 current version: v2.2.0
 
